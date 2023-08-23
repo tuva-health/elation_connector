@@ -26,20 +26,17 @@ jobs:
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt deps --profiles-dir ./profiles/snowflake"
-          dbt_project_folder: "integration_tests"
 
           
       - name: dbt-debug
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt debug --profiles-dir ./profiles/snowflake"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-build
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: 'dbt build --full-refresh --profiles-dir ./profiles/snowflake --vars {"tuva_database":"dev_ci_testing","input_database":"dev_ci_testing","input_schema":"claims_common"}'
-          dbt_project_folder: "integration_tests"
 
 
       - name: Get the result

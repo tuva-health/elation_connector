@@ -38,19 +38,16 @@ jobs:
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt deps --profiles-dir ./profiles/snowflake"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-debug
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt debug --profiles-dir ./profiles/snowflake"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-build
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: 'dbt build --full-refresh --profiles-dir ./profiles/snowflake --vars {"tuva_database":"dev_ci_testing","input_database":"dev_ci_testing","input_schema":"claims_common"}'
-          dbt_project_folder: "integration_tests"
 
       - name: Get the result
         if: ${{ always() }}
@@ -70,13 +67,11 @@ jobs:
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt deps --profiles-dir ./profiles/redshift"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-debug
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt debug --profiles-dir ./profiles/redshift"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-build
         uses: mwhitaker/dbt-action@v1.4.6
@@ -102,19 +97,16 @@ jobs:
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt deps --profiles-dir ./profiles/bigquery"
-          dbt_project_folder: "integration_tests"
  
       - name: dbt-debug
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: "dbt debug --profiles-dir ./profiles/bigquery"
-          dbt_project_folder: "integration_tests"
 
       - name: dbt-build
         uses: mwhitaker/dbt-action@v1.4.6
         with:
           dbt_command: 'dbt build --full-refresh --profiles-dir ./profiles/bigquery  --vars {"tuva_database":"dev-ci-testing","input_database":"dev-ci-testing","input_schema":"connector"}'
-          dbt_project_folder: "integration_tests"
 
       - name: Get the result
         if: ${{ always() }}

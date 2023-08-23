@@ -24,20 +24,18 @@ jobs:
         uses: mwhitaker/dbt-action@v1.3.0
         with:
           dbt_command: "dbt deps --profiles-dir ./profiles/redshift"
-          dbt_project_folder: "integration_tests"
 
           
       - name: dbt-debug
         uses: mwhitaker/dbt-action@v1.3.0
         with:
           dbt_command: "dbt debug --profiles-dir ./profiles/redshift"
-          dbt_project_folder: "integration_tests"
+
 
       - name: dbt-build
         uses: mwhitaker/dbt-action@v1.3.0
         with:
           dbt_command: 'dbt build --full-refresh --profiles-dir ./profiles/redshift --vars {"tuva_database":"dev_ci_testing","input_database":"dev_ci_testing","input_schema":"claims_common"}'
-          dbt_project_folder: "integration_tests"
 
 
       - name: Get the result
