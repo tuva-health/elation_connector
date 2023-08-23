@@ -1,5 +1,6 @@
 select 
     id as observation_id
+    , id as source_id
     , patient_id
     , null as encounter_id
     , null as panel_id

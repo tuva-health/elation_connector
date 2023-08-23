@@ -1,5 +1,6 @@
 select 
-      r.id as observation_id
+    r.id as observation_id
+    , r.id as source_id
     , r.patient_id 
     , null as encounter_id
     , r.document_date as observation_date

@@ -121,6 +121,7 @@ with vitals_unpivot as(
 
 select
     id as observation_id
+    , id as source_id
     , patient_id
     , encounter_id
     , observation_date

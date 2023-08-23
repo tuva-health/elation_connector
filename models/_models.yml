@@ -127,7 +127,7 @@ models:
       - name: patient_id
         tests:
         - not_null
-      - name: source_code
+      - name: source_description
         tests:
         - not_null
     config:
@@ -165,7 +165,7 @@ models:
       - name: patient_id
         tests:
         - not_null
-      - name: source_code
+      - name: source_description
         tests:
         - not_null
     config:
@@ -190,7 +190,7 @@ models:
       - name: patient_id
         tests:
         - not_null
-      - name: source_code
+      - name: source_description
         tests:
         - not_null
     config:
@@ -210,7 +210,7 @@ models:
       - name: patient_id
         tests:
         - not_null
-      - name: source_code
+      - name: source_description
         tests:
         - not_null
     config:
@@ -251,7 +251,7 @@ models:
       - name: patient_id
         tests:
         - not_null
-      - name: source_code
+      - name: source_description
         tests:
         - not_null
     config:
