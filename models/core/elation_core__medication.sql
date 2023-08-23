@@ -1,1 +1,1 @@
-select * from {{ref('elation_stage__medication')}}
+select * from {{ref('elation_stage__medication_fill')}}

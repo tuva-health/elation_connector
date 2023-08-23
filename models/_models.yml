@@ -41,10 +41,10 @@ models:
       schema: elation_stage
       alias: lab_result
 
-  - name: elation_stage__medication
+  - name: elation_stage__medication_fill
     config:
       schema: elation_stage
-      alias: medication
+      alias: medication_fill
 
   - name: elation_stage__misc_orders
     config:
@@ -105,13 +105,13 @@ models:
 
   - name: elation_core__allergy
     config:
-      schema: elation_core
+      schema: core_stage
       alias: allergy
       materialized: table
 
   - name: elation_core__appointment
     config:
-      schema: elation_core
+      schema: core_stage
       alias: appointment
       materialized: table
 
@@ -131,7 +131,7 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: condition
 
   - name: elation_core__encounter
@@ -150,7 +150,7 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: encounter
 
   - name: elation_core__lab_result
@@ -169,13 +169,13 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: lab_result
       materialized: table
 
   - name: elation_core__location
     config:
-      schema: elation_core
+      schema: core_stage
       alias: location
 
   - name: elation_core__medication
@@ -194,7 +194,7 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: medication
       materialized: table
 
@@ -214,7 +214,7 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: observation
       materialized: table
 
@@ -225,7 +225,7 @@ models:
         - unique
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: patient
 
   - name: elation_core__practitioner
@@ -235,7 +235,7 @@ models:
         - unique
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: practitioner
       materialized: table
 
@@ -255,6 +255,6 @@ models:
         tests:
         - not_null
     config:
-      schema: elation_core
+      schema: core_stage
       alias: procedure
       materialized: table
