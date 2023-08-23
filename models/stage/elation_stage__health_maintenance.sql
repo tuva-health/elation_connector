@@ -1,10 +1,6 @@
 select
-<<<<<<< HEAD
     hm.id as observation_id
     , hm.id as source_id
-=======
-     hm.id as observation_id
->>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
     , hm.patient_id
     , null as encounter_id
     , hm.date as observation_date
