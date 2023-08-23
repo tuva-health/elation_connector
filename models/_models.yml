@@ -1,0 +1,260 @@
+models:
+## Elation Stage
+
+  - name: elation_stage__allergy
+    config:
+      schema: elation_stage
+      alias: allergy
+
+  - name: elation_stage__appointment
+    config:
+      schema: elation_stage
+      alias: appointment
+
+  - name: elation_stage__billing_diagnosis
+    config:
+      schema: elation_stage
+      alias: billing_diagnosis
+
+  - name: elation_stage__condition_history
+    config:
+      schema: elation_stage
+      alias: condition_history
+
+  - name: elation_stage__drug_intolerance
+    config:
+      schema: elation_stage
+      alias: drug_intolerance
+
+  - name: elation_stage__health_maintenance
+    config:
+      schema: elation_stage
+      alias: health_maintenance
+
+  - name: elation_stage__immunization
+    config:
+      schema: elation_stage
+      alias: immunization
+
+  - name: elation_stage__lab_result
+    config:
+      schema: elation_stage
+      alias: lab_result
+
+  - name: elation_stage__medication
+    config:
+      schema: elation_stage
+      alias: medication
+
+  - name: elation_stage__misc_orders
+    config:
+      schema: elation_stage
+      alias: misc_orders
+
+  - name: elation_stage__patient
+    config:
+      schema: elation_stage
+      alias: patient
+
+  - name: elation_stage__patient_insurance
+    config:
+      schema: elation_stage
+      alias: patient_insurance
+
+  - name: elation_stage__patient_problem
+    config:
+      schema: elation_stage
+      alias: problem
+
+  - name: elation_stage__patient_tag
+    config:
+      schema: elation_stage
+      alias: patient_tag
+
+  - name: elation_stage__practitioner
+    config:
+      schema: elation_stage
+      alias: practitioner
+
+  - name: elation_stage__procedure
+    config:
+      schema: elation_stage
+      alias: procedure
+
+  - name: elation_stage__report
+    config:
+      schema: elation_stage
+      alias: report
+
+  - name: elation_stage__report_document_tag
+    config:
+      schema: elation_stage
+      alias: report_document_tag
+
+  - name: elation_stage__visit_note_encounter
+    config:
+      schema: elation_stage
+      alias: visit_note_encounter
+
+  - name: elation_stage__vitals
+    config:
+      schema: elation_stage
+      alias: vitals
+
+## Elation Core
+
+  - name: elation_core__allergy
+    config:
+      schema: elation_core
+      alias: allergy
+      materialized: table
+
+  - name: elation_core__appointment
+    config:
+      schema: elation_core
+      alias: appointment
+      materialized: table
+
+  - name: elation_core__condition
+    columns:
+      - name: condition_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: condition
+
+  - name: elation_core__encounter
+    columns:
+      - name: encounter_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: encounter_type
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: encounter
+
+  - name: elation_core__lab_result
+    columns:
+      - name: lab_result_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: lab_result
+      materialized: table
+
+  - name: elation_core__location
+    config:
+      schema: elation_core
+      alias: location
+
+  - name: elation_core__medication
+    columns:
+      - name: medication_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: medication
+      materialized: table
+
+  - name: elation_core__observation
+    columns:
+      - name: observation_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: observation
+      materialized: table
+
+  - name: elation_core__patient
+    columns:
+      - name: patient_id
+        tests:
+        - unique
+        - not_null
+    config:
+      schema: elation_core
+      alias: patient
+
+  - name: elation_core__practitioner
+    columns:
+      - name: practitioner_id
+        tests:
+        - unique
+        - not_null
+    config:
+      schema: elation_core
+      alias: practitioner
+      materialized: table
+
+  - name: elation_core__procedure
+    columns:
+      - name: procedure_id
+        tests:
+        - unique
+        - not_null
+      - name: source_id
+        tests:
+        - not_null
+      - name: patient_id
+        tests:
+        - not_null
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+      alias: procedure
+      materialized: table

@@ -1,0 +1,1 @@
+select * from {{ ref('elation_stage__visit_note_encounter') }}
