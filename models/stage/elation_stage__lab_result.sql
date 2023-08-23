@@ -1,9 +1,29 @@
+<<<<<<< HEAD
+with deduplicate_requisition as(
+    select 
+        req_number
+        , ordering_provider
+        , row_number() over (partition by req_number order by last_modified desc) as duplicate_row_number
+    from elation.herself_health.lab_order
+)
+
+select 
+    sha2(report.patient_id||result.resulted_date||result.test_name||result.value||result.id, 512) as lab_result_id
+    , result.id as source_id
+    , report.patient_id as patient_id
+    , null as encounter_id
+    , result.accession_number
+    , case 
+        when result.loinc is not null then 'loinc'
+    end as source_code_type
+=======
 select 
     result.id as lab_result_id
     , report.patient_id as patient_id
     , null as encounter_id
     , result.accession_number
     , 'loinc' as source_code_type
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
     , result.loinc as source_code
     , result.test_category as source_description
     , result.test_name as source_component
@@ -29,6 +49,12 @@ select
 from {{ source('elation','lab_result')}} result
 inner join {{ source('elation','report')}} report
     on result.lab_report_id = report.id
+<<<<<<< HEAD
+left join deduplicate_requisition ord
+    on report.requisition_number = ord.req_number
+    and ord.duplicate_row_number = 1
+=======
 left join {{ source('elation','lab_order')}} ord
     on report.requisition_number = ord.req_number
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
 where result.is_deleted = 'FALSE'

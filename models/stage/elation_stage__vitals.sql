@@ -121,6 +121,10 @@ with vitals_unpivot as(
 
 select
     id as observation_id
+<<<<<<< HEAD
+    , id as source_id
+=======
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
     , patient_id
     , encounter_id
     , observation_date
