@@ -16,7 +16,10 @@ with visit_note_diagnosis as(
 
 select 
     id as encounter_id
+<<<<<<< HEAD
     , id as source_id
+=======
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
     , patient_id
     , 'office visit' as encounter_type
     , date(document_date) as encounter_start_date

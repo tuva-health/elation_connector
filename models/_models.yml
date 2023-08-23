@@ -41,10 +41,17 @@ models:
       schema: elation_stage
       alias: lab_result
 
+<<<<<<< HEAD
   - name: elation_stage__medication_fill
     config:
       schema: elation_stage
       alias: medication_fill
+=======
+  - name: elation_stage__medication
+    config:
+      schema: elation_stage
+      alias: medication
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
 
   - name: elation_stage__misc_orders
     config:
@@ -105,13 +112,21 @@ models:
 
   - name: elation_core__allergy
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: allergy
       materialized: table
 
   - name: elation_core__appointment
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: appointment
       materialized: table
 
@@ -127,11 +142,19 @@ models:
       - name: patient_id
         tests:
         - not_null
+<<<<<<< HEAD
       - name: source_description
         tests:
         - not_null
     config:
       schema: core_stage
+=======
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: condition
 
   - name: elation_core__encounter
@@ -150,7 +173,11 @@ models:
         tests:
         - not_null
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: encounter
 
   - name: elation_core__lab_result
@@ -165,17 +192,29 @@ models:
       - name: patient_id
         tests:
         - not_null
+<<<<<<< HEAD
       - name: source_description
         tests:
         - not_null
     config:
       schema: core_stage
+=======
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: lab_result
       materialized: table
 
   - name: elation_core__location
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: location
 
   - name: elation_core__medication
@@ -190,11 +229,19 @@ models:
       - name: patient_id
         tests:
         - not_null
+<<<<<<< HEAD
       - name: source_description
         tests:
         - not_null
     config:
       schema: core_stage
+=======
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: medication
       materialized: table
 
@@ -210,11 +257,19 @@ models:
       - name: patient_id
         tests:
         - not_null
+<<<<<<< HEAD
       - name: source_description
         tests:
         - not_null
     config:
       schema: core_stage
+=======
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: observation
       materialized: table
 
@@ -225,7 +280,11 @@ models:
         - unique
         - not_null
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: patient
 
   - name: elation_core__practitioner
@@ -235,7 +294,11 @@ models:
         - unique
         - not_null
     config:
+<<<<<<< HEAD
       schema: core_stage
+=======
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: practitioner
       materialized: table
 
@@ -251,10 +314,18 @@ models:
       - name: patient_id
         tests:
         - not_null
+<<<<<<< HEAD
       - name: source_description
         tests:
         - not_null
     config:
       schema: core_stage
+=======
+      - name: source_code
+        tests:
+        - not_null
+    config:
+      schema: elation_core
+>>>>>>> 54b2bbd9702f9c2541feb47eb7d5b147181d57f0
       alias: procedure
       materialized: table
