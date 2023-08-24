@@ -76,11 +76,6 @@ models:
       alias: lab_result
       materialized: table
 
-  - name: elation_core__location
-    config:
-      schema: core_stage
-      alias: location
-
   - name: elation_core__medication
     config:
       schema: core_stage
