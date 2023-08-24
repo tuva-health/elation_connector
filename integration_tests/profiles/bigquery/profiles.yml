@@ -6,7 +6,7 @@ default:
       method: service-account
       keyfile: ./creds.json
       project: "{{ env_var('TUVA_BIGQUERY_PROJECT') }}"
-      dataset: dev-cit-testing
+      dataset: dev-ci-testing
       threads: 4
       timeout_seconds: 300
       location: US
