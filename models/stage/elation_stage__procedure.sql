@@ -17,7 +17,7 @@ select
     , item.modifier_2
     , item.modifier_3
     , item.modifier_4
-    , user.id as practitioner_id
+    , users.id as practitioner_id
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','bill_item') }} item
 inner join {{ source('elation','bill') }} bill
@@ -26,9 +26,9 @@ inner join {{ source('elation','visit_note') }} note
   on bill.visit_note_id = note.id
 left join {{ ref('terminology__hcpcs_level_2') }} hcpcs_ii
     on item.cpt = hcpcs_ii.hcpcs
-left join {{ source('elation','user') }} user
-    on note.physician_user_id = user.id
+left join {{ source('elation','user') }} users
+    on note.physician_user_id = users.id
 left join {{ ref('terminology__provider') }} prov
-    on user.npi = prov.npi
+    on users.npi = prov.npi
 where item.deletion_time is null
 and nullif(item.cpt,'') is not null
