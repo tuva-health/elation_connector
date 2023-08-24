@@ -3,39 +3,25 @@ version: 2
 sources:
   - name: elation
     database: elation
-    schema:  herself_health
+    schema:  raw
     tables:
-      - name: appointment
       - name: bill
       - name: bill_item
       - name: bill_item_dx
-      - name: canonical_physician
       - name: document_tag
       - name: health_maintenance
       - name: icd10
-      - name: insurance
-      - name: lab_order
       - name: lab_result
       - name: med_order
       - name: med_order_fill
       - name: medication_rxnorm
-      - name: misc_orders
       - name: patient
-      - name: patient_allergy
-      - name: patient_allergy_rxnorm
-      - name: patient_drug_intolerance
-      - name: patient_drug_intolerance_rxnorm
-      - name: patient_history
-      - name: patient_immunization
-      - name: patient_insurance
       - name: patient_phone
       - name: patient_problem
       - name: patient_problem_code
-      - name: patient_tag
       - name: practice
       - name: report
       - name: report_document_tag
-      - name: service_location
       - name: user
       - name: visit_note
       - name: vital

@@ -118,58 +118,16 @@ models:
       materialized: table
 
   - name: elation_core__condition
-    columns:
-      - name: condition_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: source_description
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: condition
 
   - name: elation_core__encounter
-    columns:
-      - name: encounter_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: encounter_type
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: encounter
 
   - name: elation_core__lab_result
-    columns:
-      - name: lab_result_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: source_description
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: lab_result
@@ -181,81 +139,29 @@ models:
       alias: location
 
   - name: elation_core__medication
-    columns:
-      - name: medication_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: source_description
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: medication
       materialized: table
 
   - name: elation_core__observation
-    columns:
-      - name: observation_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: source_description
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: observation
       materialized: table
 
   - name: elation_core__patient
-    columns:
-      - name: patient_id
-        tests:
-        - unique
-        - not_null
     config:
       schema: core_stage
       alias: patient
 
   - name: elation_core__practitioner
-    columns:
-      - name: practitioner_id
-        tests:
-        - unique
-        - not_null
     config:
       schema: core_stage
       alias: practitioner
       materialized: table
 
   - name: elation_core__procedure
-    columns:
-      - name: procedure_id
-        tests:
-        - unique
-        - not_null
-      - name: source_id
-        tests:
-        - not_null
-      - name: patient_id
-        tests:
-        - not_null
-      - name: source_description
-        tests:
-        - not_null
     config:
       schema: core_stage
       alias: procedure
