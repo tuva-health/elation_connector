@@ -3,7 +3,7 @@ with deduplicate_requisition as(
         req_number
         , ordering_provider
         , row_number() over (partition by req_number order by last_modified desc) as duplicate_row_number
-    from elation.herself_health.lab_order
+    from {{ source('elation','lab_order')}}
 )
 
 select 
