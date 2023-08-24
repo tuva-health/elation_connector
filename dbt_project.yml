@@ -8,6 +8,8 @@ profile: 'default'
 
 
 vars:
+  input_database: elation
+  input_schema: raw
   tuva_marts_enabled: false
   
 # These configurations specify where dbt should look for different types of files.
