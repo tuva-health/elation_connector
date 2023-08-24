@@ -11,6 +11,7 @@ sources:
       - name: document_tag
       - name: health_maintenance
       - name: icd10
+      - name: lab_order
       - name: lab_result
       - name: med_order
       - name: med_order_fill
