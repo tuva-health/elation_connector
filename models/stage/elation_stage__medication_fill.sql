@@ -8,7 +8,7 @@ with rxnorm as(
 )
 
 select 
-    sha2(fill.patient_id||fill.id||rxnorm.rxnorm_code, 512) as medication_id
+    {{sha_hash_512('fill.patient_id||fill.id||rxnorm.rxnorm_code') }} as medication_id
     , fill.id as source_id
     , fill.patient_id
     , null as encounter_id

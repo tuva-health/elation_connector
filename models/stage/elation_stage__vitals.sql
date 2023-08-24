@@ -5,9 +5,9 @@ with vitals_unpivot as(
         , patient_id
         , document_date as observation_date
         , id as panel_id
-        , null as source_code_type
+        , cast(null as {{ dbt.type_string() }} ) as source_code_type
         , lower(source_code) as source_code
-        , null as source_description
+        , cast(null as {{ dbt.type_string() }} ) as source_description
         , result
         , units
     from
@@ -34,9 +34,9 @@ with vitals_unpivot as(
         , patient_id
         , document_date as observation_date
         , id as panel_id
-        , null as source_code_type
+        , cast(null as {{ dbt.type_string() }} ) as source_code_type
         , lower(source_code) as source_code
-        , null as source_description
+        , cast(null as {{ dbt.type_string() }} ) as source_description
         , result
         , units
     from
@@ -63,9 +63,9 @@ with vitals_unpivot as(
         , patient_id
         , document_date as observation_date
         , id as panel_id
-        , null as source_code_type
+        , cast(null as {{ dbt.type_string() }} ) as source_code_type
         , lower(source_code) as source_code
-        , null as source_description
+        , cast(null as {{ dbt.type_string() }} ) as source_description
         , result
         , units
     from
@@ -92,11 +92,11 @@ with vitals_unpivot as(
         , patient_id
         , document_date as observation_date
         , id as panel_id
-        , null as source_code_type
+        , cast(null as {{ dbt.type_string() }} ) as source_code_type
         , lower(source_code) as source_code
-        , null as source_description
+        , cast(null as {{ dbt.type_string() }} ) as source_description
         , result
-        , null as units
+        , cast(null as {{ dbt.type_string() }} ) as units
     from
     (
         select 
@@ -108,7 +108,7 @@ with vitals_unpivot as(
             , bp_s
             , hc
             , height
-            , cast(bmi as varchar) as bmi
+            , cast(bmi as {{ dbt.type_string() }} ) as bmi
             , hr
             , o2_percent
             , pain

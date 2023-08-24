@@ -1,5 +1,5 @@
 select
-    sha2(patient_id||coalesce(item.creation_time, item.last_modified)||item.cpt||bill.id, 512) as procedure_id
+    {{sha_hash_512('patient_id||coalesce(item.creation_time, item.last_modified)||item.cpt||bill.id') }} as procedure_id
     , item.id as source_id
     , note.patient_id
     , note.id as encounter_id
