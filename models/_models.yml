@@ -3,40 +3,15 @@ version: 2
 models:
 ## Elation Stage
 
-  - name: elation_stage__allergy
-    config:
-      schema: elation_stage
-      alias: allergy
-
-  - name: elation_stage__appointment
-    config:
-      schema: elation_stage
-      alias: appointment
-
   - name: elation_stage__billing_diagnosis
     config:
       schema: elation_stage
       alias: billing_diagnosis
 
-  - name: elation_stage__condition_history
-    config:
-      schema: elation_stage
-      alias: condition_history
-
-  - name: elation_stage__drug_intolerance
-    config:
-      schema: elation_stage
-      alias: drug_intolerance
-
   - name: elation_stage__health_maintenance
     config:
       schema: elation_stage
       alias: health_maintenance
-
-  - name: elation_stage__immunization
-    config:
-      schema: elation_stage
-      alias: immunization
 
   - name: elation_stage__lab_result
     config:
@@ -48,30 +23,15 @@ models:
       schema: elation_stage
       alias: medication_fill
 
-  - name: elation_stage__misc_orders
-    config:
-      schema: elation_stage
-      alias: misc_orders
-
   - name: elation_stage__patient
     config:
       schema: elation_stage
       alias: patient
 
-  - name: elation_stage__patient_insurance
-    config:
-      schema: elation_stage
-      alias: patient_insurance
-
   - name: elation_stage__patient_problem
     config:
       schema: elation_stage
       alias: problem
-
-  - name: elation_stage__patient_tag
-    config:
-      schema: elation_stage
-      alias: patient_tag
 
   - name: elation_stage__practitioner
     config:
@@ -88,11 +48,6 @@ models:
       schema: elation_stage
       alias: report
 
-  - name: elation_stage__report_document_tag
-    config:
-      schema: elation_stage
-      alias: report_document_tag
-
   - name: elation_stage__visit_note_encounter
     config:
       schema: elation_stage
@@ -104,18 +59,6 @@ models:
       alias: vitals
 
 ## Elation Core
-
-  - name: elation_core__allergy
-    config:
-      schema: core_stage
-      alias: allergy
-      materialized: table
-
-  - name: elation_core__appointment
-    config:
-      schema: core_stage
-      alias: appointment
-      materialized: table
 
   - name: elation_core__condition
     config:
