@@ -42,7 +42,7 @@ with stage_patient as(
         , phone_type as phone_type
         , row_number() over (partition by patient_id, phone_type order by last_modified desc) as duplicate_row_count
     from {{ source('elation','patient_phone') }}
-    where is_deleted = 'FALSE'
+    where is_deleted = FALSE
 )
 select
     pat.patient_id
@@ -57,15 +57,15 @@ select
     , pat.city
     , pat.state
     , pat.zip_code
-    , null as county
-    , null as latitude
-    , null as longitude
+    , cast(null as {{ dbt.type_string() }} ) as county
+    , cast(null as {{ dbt.type_string() }} ) as latitude
+    , cast(null as {{ dbt.type_string() }} ) as longitude
     , home.phone as home_phone
     , cell.phone as mobile_phone
     , work_phone.phone as work_phone
     , other.phone as other_phone
     , pat.email
-    , null as ssn
+    , cast(null as {{ dbt.type_string() }} ) as ssn
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from stage_patient pat
 left join patient_phone home

@@ -8,8 +8,8 @@ profile: 'default'
 
 
 vars:
-  input_database: elation
-  input_schema: raw
+  input_database: dev-ci-testing
+  input_schema: elation
   
   tuva_marts_enabled: false
   

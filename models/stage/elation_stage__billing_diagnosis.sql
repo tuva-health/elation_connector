@@ -1,12 +1,12 @@
 select distinct
-    sha2(patient_id||item.creation_time||bill_dx.seqno||bill_dx.icd10_code||'billing'||bill_id, 512) as condition_id
+    {{sha_hash_512('patient_id||item.creation_time||bill_dx.seqno||bill_dx.icd10_code||bill_id')}} condition_id
   , bill_id as source_id
   , note.patient_id
   , note.id as encounter_id
-  , null as claim_id
+  , cast(null as {{ dbt.type_string() }} ) as claim_id
   , item.creation_time as recorded_date
-  , null as onset_date
-  , null as resolved_date
+  , cast(null as {{ dbt.type_string() }} ) as onset_date
+  , cast(null as {{ dbt.type_string() }} ) as resolved_date
   , case lower(bill.billing_status) 
         when 'billed' then 'billed'
         when 'unbilled' then 'unbilled'
@@ -15,15 +15,15 @@ select distinct
   , 'billing' as condition_type
   , 'icd-10-cm' as source_code_type
   , bill_dx.icd10_code as source_code
-  , null as source_description
+  , cast(null as {{ dbt.type_string() }} ) as source_description
   , case
     when norm_icd10.icd_10_cm is not null then 'icd-10-cm'
   end as normalized_code_type
   , norm_icd10.icd_10_cm as normalized_code
   , norm_icd10.description as normalized_description
   , bill_dx.seqno as rank
-  , null as present_on_admit_code
-  , null as present_on_admit_description
+  , cast(null as {{ dbt.type_string() }} ) as present_on_admit_code
+  , cast(null as {{ dbt.type_string() }} ) as present_on_admit_description
   , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
   , bill.last_modified as source_last_modified
 from {{ source('elation','bill_item_dx')}} bill_dx
