@@ -7,7 +7,7 @@ with icd_10_unique as(
 )
 
 select distinct
-      sha2(patient_id||prob.creation_time||rank||source_icd10.code||'problem', 512) as condition_id
+      {{sha_hash_512('patient_id||prob.creation_time||rank||source_icd10.code')}} as condition_id
     , prob.id as source_id
     , prob.patient_id
     , null as encounter_id

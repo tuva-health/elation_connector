@@ -17,9 +17,6 @@ select
     , dt.value as result
     , null as source_units
     , null as normalized_units
-/** columns for daily huddle  **/
-    , custom_title
-    , document_tag_id
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','report')}} as r
 inner join {{ source('elation','report_document_tag')}} as rdt
