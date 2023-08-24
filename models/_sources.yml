@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: elation
-    database: elation
-    schema:  raw
+    database:  "{{ var('input_database') }}"
+    schema:  "{{ var('input_schema') }}"
     tables:
       - name: bill
       - name: bill_item
