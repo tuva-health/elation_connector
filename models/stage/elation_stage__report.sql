@@ -5,8 +5,8 @@ with distinct_tags as(
         , dt.code
         , dt.description
         , dt.value
-        , row_number() over (partition by rdt.report_id order by case when code_type = 'HCPCS' then 1 else 2 end) as duplicate_row_number 
-    from{{ source('elation','report_document_tag')}} as rdt
+        , row_number() over (partition by rdt.report_id order by case when code_type = 'LOINC' then 1 else 2 end) as duplicate_row_number 
+    from {{ source('elation','report_document_tag')}} as rdt
     inner join {{ source('elation','document_tag')}} as dt
     on rdt.document_tag_id = dt.id
 )
