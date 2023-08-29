@@ -21,23 +21,23 @@ select
     , r.document_date as observation_date
     , null as panel_id
     , report_type as observation_type
-    , tag.code_type as source_code_type
-    , tag.code as source_code
-    , tag.description as source_description
+    , tags.code_type as source_code_type
+    , tags.code as source_code
+    , tags.description as source_description
     , case 
         when hcpcs_ii.hcpcs is not null then 'hcpcs'
     end as normalized_code_type
     , hcpcs_ii.hcpcs as normalized_code
     , hcpcs_ii.long_description as normalized_description
-    , tag.value as result
+    , tags.value as result
     , null as source_units
     , null as normalized_units
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','report')}} as r
-inner join distinct_tags tag
-    on r.id = tag.report_id
-    and tag.duplicate_row_number = 1
+inner join distinct_tags tags
+    on r.id = tags.report_id
+    and tags.duplicate_row_number = 1
 left join {{ ref('terminology__hcpcs_level_2')}} hcpcs_ii
-    on tag.code = hcpcs_ii.hcpcs
-    and tag.code_type = 'HCPCS'
+    on tags.code = hcpcs_ii.hcpcs
+    and tags.code_type = 'HCPCS'
 where r.deletion_time is null

@@ -9,7 +9,7 @@ profile: 'default'
 
 vars:
   input_database: elation
-  input_schema: raw
+  input_schema: raw_data
   
   tuva_marts_enabled: false
   
