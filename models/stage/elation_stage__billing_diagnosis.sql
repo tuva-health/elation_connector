@@ -21,11 +21,11 @@ select distinct
   end as normalized_code_type
   , norm_icd10.icd_10_cm as normalized_code
   , norm_icd10.description as normalized_description
-  , bill_dx.seqno as rank
+  , bill_dx.seqno as condition_rank
   , cast(null as {{ dbt.type_string() }} ) as present_on_admit_code
   , cast(null as {{ dbt.type_string() }} ) as present_on_admit_description
+  , 'elation' as data_source
   , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
-  , bill.last_modified as source_last_modified
 from {{ source('elation','bill_item_dx')}} bill_dx
 left join {{ source('elation','bill_item')}} item
     on bill_dx.bill_item_id = item.id

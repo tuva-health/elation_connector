@@ -36,6 +36,7 @@ select
     , cast(null as {{ dbt.type_string() }} ) as normalized_abnormal_flag
     , ord.ordering_provider as ordering_practitioner_id
     , cast(null as {{ dbt.type_string() }} ) as specimen
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','lab_result')}} result
 inner join {{ source('elation','report')}} report

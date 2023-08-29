@@ -17,7 +17,9 @@ select
     , item.modifier_2
     , item.modifier_3
     , item.modifier_4
+    , null as modifier_5
     , users.id as practitioner_id
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','bill_item') }} item
 inner join {{ source('elation','bill') }} bill

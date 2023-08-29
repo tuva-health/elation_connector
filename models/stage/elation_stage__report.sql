@@ -32,6 +32,11 @@ select
     , tags.value as result
     , null as source_units
     , null as normalized_units
+    , null as source_reference_range_low
+    , null as source_reference_range_high
+    , null as normalized_reference_range_low
+    , null as normalized_reference_range_high
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','report')}} as r
 inner join distinct_tags tags

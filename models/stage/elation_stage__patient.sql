@@ -66,6 +66,7 @@ select
     , other.phone as other_phone
     , pat.email
     , cast(null as {{ dbt.type_string() }} ) as ssn
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from stage_patient pat
 left join patient_phone home

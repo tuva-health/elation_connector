@@ -29,9 +29,10 @@ select distinct
     end as normalized_code_type
     , norm_icd10.icd_10_cm as normalized_code
     , norm_icd10.description as normalized_description
-    , prob.rank
+    , prob.rank as condition_rank
     , null as present_on_admit_code
     , null as present_on_admit_description
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
     , prob.last_modified as source_last_modified
 from {{ source('elation','patient_problem') }} prob

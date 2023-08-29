@@ -11,7 +11,7 @@ vars:
   input_database: elation
   input_schema: raw_data
   
-  tuva_marts_enabled: false
+  clinical_enabled: true
   
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
