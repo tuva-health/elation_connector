@@ -143,5 +143,6 @@ select
     end as source_description
     , result
     , units as source_units
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from vitals_unpivot

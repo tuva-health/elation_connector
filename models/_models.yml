@@ -60,46 +60,47 @@ models:
 
 ## Elation Core
 
-  - name: elation_core__condition
+  - name: condition
     config:
       schema: core_stage
       alias: condition
 
-  - name: elation_core__encounter
+  - name: encounter
     config:
       schema: core_stage
       alias: encounter
 
-  - name: elation_core__lab_result
+  - name: lab_result
     config:
       schema: core_stage
       alias: lab_result
       materialized: table
 
-  - name: elation_core__medication
+  - name: medication
     config:
       schema: core_stage
       alias: medication
       materialized: table
 
-  - name: elation_core__observation
+  - name: observation
     config:
       schema: core_stage
       alias: observation
       materialized: table
 
-  - name: elation_core__patient
+  - name: patient
     config:
       schema: core_stage
       alias: patient
+      materialized: table
 
-  - name: elation_core__practitioner
+  - name: practitioner
     config:
       schema: core_stage
       alias: practitioner
       materialized: table
 
-  - name: elation_core__procedure
+  - name: procedure
     config:
       schema: core_stage
       alias: procedure

@@ -19,8 +19,8 @@ select
     , medication_name as source_description
     , null as ndc_code
     , null as ndc_description
-    , null as rxnorm_code
-    , null as rxnorm_description
+    , null as rx_norm_code
+    , null as rx_norm_description
     , null as atc_code
     , null as atc_description
     , medication_route as route
@@ -31,6 +31,7 @@ select
     , days_supply
     , users.id as practitioner_id
     , null as charge_amount
+    , 'elation' as data_source
     , '{{ dbt_utils.pretty_time(format="%Y-%m-%d %H:%M:%S") }}' as tuva_last_run
 from {{ source('elation','med_order_fill') }} fill
 inner join {{ source('elation','med_order') }} med_order
