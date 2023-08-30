@@ -19,8 +19,8 @@ select
     , medication_name as source_description
     , null as ndc_code
     , null as ndc_description
-    , null as rx_norm_code
-    , null as rx_norm_description
+    , null as rxnorm_code
+    , null as rxnorm_description
     , null as atc_code
     , null as atc_description
     , medication_route as route
