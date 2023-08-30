@@ -1,4 +1,3 @@
-
 name: 'elation__connector'
 version: '0.0.1'
 config-version: 2
@@ -11,6 +10,8 @@ vars:
   input_database: elation
   input_schema: raw
   
+  ## This configuration controls which models are executed
+  # in The Tuva Project.  
   clinical_enabled: true
   
 # These configurations specify where dbt should look for different types of files.
