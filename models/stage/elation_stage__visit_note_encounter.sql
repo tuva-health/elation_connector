@@ -31,6 +31,7 @@ select
     , null as died_flag
     , physician_user_id as attending_provider_id
     , null as facility_npi
+    , 'icd-10-cm' as primary_diagnosis_code_type
     , icd10.icd_10_cm as primary_diagnosis_code
     , icd10.description as primary_diagnosis_description
     , null as ms_drg_code

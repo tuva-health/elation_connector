@@ -12,8 +12,8 @@ select
     , fill.id as source_id
     , fill.patient_id
     , null as encounter_id
-    , last_fill_date as dispensing_date
-    , written_date as prescribing_date
+    , cast(last_fill_date as date) as dispensing_date
+    , cast(written_date as date) as prescribing_date
     , 'rxnorm' as source_code_type
     , rxnorm.rxnorm_code as source_code
     , medication_name as source_description
