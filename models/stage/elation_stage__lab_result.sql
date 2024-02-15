@@ -24,8 +24,8 @@ select
     , cast(null as {{ dbt.type_string() }} ) as normalized_component
     , result.accession_status as status
     , result.value as result
-    , result.resulted_date as result_date
-    , result.collected_date as collection_date
+    , cast(result.resulted_date as date) as result_date
+    , cast(result.collected_date as date) as collection_date
     , result.units as source_units
     , cast(null as {{ dbt.type_string() }} ) as normalized_units
     , result.reference_min as source_reference_range_low

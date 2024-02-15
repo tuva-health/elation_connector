@@ -12,9 +12,9 @@ select distinct
     , prob.patient_id
     , null as encounter_id
     , null as claim_id
-    , prob.creation_time as recorded_date
-    , prob.start_date as onset_date
-    , prob.resolved_date
+    , cast(prob.creation_time as date) as recorded_date
+    , cast(prob.start_date as date) as onset_date
+    , cast(prob.resolved_date as date) as resolved_date
     , case lower(prob.status) 
             when 'active' then 'active'
             when 'resolved' then 'resolved'

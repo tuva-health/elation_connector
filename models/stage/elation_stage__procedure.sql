@@ -4,7 +4,7 @@ select
     , note.patient_id
     , note.id as encounter_id
     , null as claim_id
-    , item.creation_time as procedure_date
+    , cast(item.creation_time as date) as procedure_date
     , 'hcpcs' as source_code_type
     , item.cpt as source_code
     , null as source_description
