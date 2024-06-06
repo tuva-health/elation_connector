@@ -32,7 +32,7 @@ select
     , result.reference_max as source_reference_range_high
     , cast(null as {{ dbt.type_string() }} ) as normalized_reference_range_low
     , cast(null as {{ dbt.type_string() }} ) as normalized_reference_range_high
-    , result.is_abnormal as source_abnormal_flag
+    , cast(result.is_abnormal as {{ dbt.type_string() }} ) as source_abnormal_flag
     , cast(null as {{ dbt.type_string() }} ) as normalized_abnormal_flag
     , ord.ordering_provider as ordering_practitioner_id
     , cast(null as {{ dbt.type_string() }} ) as specimen
