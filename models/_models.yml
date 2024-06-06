@@ -17,6 +17,7 @@ models:
     config:
       schema: elation_stage
       alias: lab_result
+      materialized: table
 
   - name: elation_stage__medication_fill
     config:
