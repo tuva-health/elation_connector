@@ -28,7 +28,7 @@ select
     , fill.medication_id as code
     , quantity
     , quantity_unit
-    , days_supply
+    , fill.days_supply
     , users.id as practitioner_id
     , null as charge_amount
     , 'elation' as data_source
